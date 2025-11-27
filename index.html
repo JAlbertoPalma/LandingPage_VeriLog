@@ -161,54 +161,60 @@
         ---
         
         <section id="validacion" class="py-20 bg-color-secondary relative overflow-hidden">
-        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-white relative z-10">
-            <h2 class="text-4xl font-extrabold text-center mb-4">Formulario de <span class="text-white/90">Validación de Concepto</span></h2>
-            <p class="text-center text-lg text-white/80 mb-10">Su opinión anónima es crucial para medir la claridad y el valor de la propuesta VeriLog.</p>
-            <div class="max-w-2xl mx-auto bg-white p-8 rounded-xl shadow-2xl transform transition duration-300">
-                <form action="https://formsubmit.co/jesus.palma247910@potros.itson.edu.mx" method="POST" id="validation-form" class="space-y-6">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-white relative z-10">
+                <h2 class="text-4xl font-extrabold text-center mb-4">Formulario de <span class="text-white/90">Validación de Concepto</span></h2>
+                <p class="text-center text-lg text-white/80 mb-10">Su opinión anónima es crucial para medir la claridad y el valor de la propuesta VeriLog.</p>
+                
+                <div class="max-w-2xl mx-auto bg-white p-8 rounded-xl shadow-2xl transform transition duration-300">
                     
-                    <div>
-                        <label class="block text-gray-800 font-bold mb-3">1. ¿Qué tan clara te pareció la explicación del concepto VeriLog?</label>
-                        <div class="flex justify-between md:justify-around space-x-2 md:space-x-4 p-3 bg-gray-100 rounded-lg">
-                            <label class="flex flex-col items-center cursor-pointer text-gray-700 transition duration-150 hover:text-red-500"><input type="radio" name="Clarity_Rating" value="1 (Poco Clara)" required class="form-radio text-red-500 h-5 w-5"><span class="mt-1 text-sm font-semibold">1 (Poco Clara)</span></label>
-                            <label class="flex flex-col items-center cursor-pointer text-gray-700 transition duration-150 hover:text-yellow-500"><input type="radio" name="Clarity_Rating" value="2 (Regular)" class="form-radio text-yellow-500 h-5 w-5"><span class="mt-1 text-sm font-semibold">2 (Regular)</span></label>
-                            <label class="flex flex-col items-center cursor-pointer text-gray-700 transition duration-150 hover:text-green-500"><input type="radio" name="Clarity_Rating" value="3 (Clara)" class="form-radio text-green-500 h-5 w-5"><span class="mt-1 text-sm font-semibold">3 (Clara)</span></label>
-                            <label class="flex flex-col items-center cursor-pointer text-gray-700 transition duration-150 hover:text-green-700"><input type="radio" name="Clarity_Rating" value="4 (Muy Clara)" class="form-radio text-green-700 h-5 w-5"><span class="mt-1 text-sm font-semibold">4 (Muy Clara)</span></label>
-                        </div>
-                    </div>
-
-                    <div>
-                        <label for="system_area" class="block text-gray-800 font-bold mb-2">2. Área del Sistema que te parece más valiosa o que te genera más dudas:</label>
-                        <div class="relative">
-                            <select id="system_area" name="System_Area" class="block appearance-none w-full bg-white border border-gray-300 text-gray-800 py-3 px-4 pr-8 rounded-lg leading-tight focus:outline-none focus:ring-2 focus:ring-color-secondary focus:border-color-secondary transition duration-150" required>
-                                <option value="" disabled selected>Seleccione un área...</option>
-                                <option value="Inmutabilidad">Inmutabilidad (0% riesgo de alteración)</option>
-                                <option value="Trazabilidad">Trazabilidad de la Cadena de Custodia (Paso 1-3)</option>
-                                <option value="Confianza">Aumento de Confianza del Donante (+40%)</option>
-                                <option value="Reportes">Reportes y Auditoría (Cumplimiento Regulatorio)</option>
-                                <option value="Logistica">Logística y Costos Operacionales</option>
-                                <option value="Dudas">Me genera dudas la implementación</option>
-                            </select>
-                            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                    <form id="validation-form" onsubmit="handleFormSubmit(event)" class="space-y-6">
+                        
+                        <div>
+                            <label class="block text-gray-800 font-bold mb-3">1. ¿Qué tan clara te pareció la explicación del concepto VeriLog?</label>
+                            <div class="flex justify-between md:justify-around space-x-2 md:space-x-4 p-3 bg-gray-100 rounded-lg">
+                                <label class="flex flex-col items-center cursor-pointer text-gray-700 transition duration-150 hover:text-red-500"><input type="radio" name="Clarity_Rating" value="1 (Poco Clara)" required class="form-radio text-red-500 h-5 w-5"><span class="mt-1 text-sm font-semibold">1 (Poco Clara)</span></label>
+                                <label class="flex flex-col items-center cursor-pointer text-gray-700 transition duration-150 hover:text-yellow-500"><input type="radio" name="Clarity_Rating" value="2 (Regular)" class="form-radio text-yellow-500 h-5 w-5"><span class="mt-1 text-sm font-semibold">2 (Regular)</span></label>
+                                <label class="flex flex-col items-center cursor-pointer text-gray-700 transition duration-150 hover:text-green-500"><input type="radio" name="Clarity_Rating" value="3 (Clara)" class="form-radio text-green-500 h-5 w-5"><span class="mt-1 text-sm font-semibold">3 (Clara)</span></label>
+                                <label class="flex flex-col items-center cursor-pointer text-gray-700 transition duration-150 hover:text-green-700"><input type="radio" name="Clarity_Rating" value="4 (Muy Clara)" class="form-radio text-green-700 h-5 w-5"><span class="mt-1 text-sm font-semibold">4 (Muy Clara)</span></label>
                             </div>
                         </div>
-                    </div>
 
-                    <div>
-                        <label for="suggestion_details" class="block text-gray-800 font-bold mb-2">3. Propuestas de Mejoras o Sugerencias Adicionales (Tu opinión libre sobre la idea):</label>
-                        <textarea id="suggestion_details" name="Suggestion_Details" placeholder="Escriba su opinión libremente. ¿Qué le falta a VeriLog para ser perfecto?" rows="4" class="w-full px-4 py-3 rounded-lg border border-gray-300 text-gray-800 focus:ring-2 focus:ring-color-secondary focus:border-color-secondary transition duration-150"></textarea>
-                    </div>
-                    
-                    <button type="submit" id="validation-submit-button" class="w-full bg-color-primary text-white px-6 py-3 rounded-full font-bold text-lg hover:bg-color-primary-dark transition duration-300 shadow-xl transform hover:scale-[1.02]">
-                        Enviar Opinión Anónima 📝
-                    </button>
-                    <input type="hidden" name="_next" value="URL-DE-TU-PAGINA-DE-AGRADECIMIENTO.html">
-                    <input type="hidden" name="_captcha" value="false">
-                </form>
-                </div>
-        </div>
-    </section>
+                        <div>
+                            <label for="system_area" class="block text-gray-800 font-bold mb-2">2. Área del Sistema que te parece más valiosa o que te genera más dudas:</label>
+                            <div class="relative">
+                                <select id="system_area" name="System_Area" class="block appearance-none w-full bg-white border border-gray-300 text-gray-800 py-3 px-4 pr-8 rounded-lg leading-tight focus:outline-none focus:ring-2 focus:ring-color-secondary focus:border-color-secondary transition duration-150" required>
+                                    <option value="" disabled selected>Seleccione un área...</option>
+                                    <option value="Inmutabilidad">Inmutabilidad (0% riesgo de alteración)</option>
+                                    <option value="Trazabilidad">Trazabilidad de la Cadena de Custodia (Paso 1-3)</option>
+                                    <option value="Confianza">Aumento de Confianza del Donante (+40%)</option>
+                                    <option value="Reportes">Reportes y Auditoría (Cumplimiento Regulatorio)</option>
+                                    <option value="Logistica">Logística y Costos Operacionales</option>
+                                    <option value="Dudas">Me genera dudas la implementación</option>
+                                </select>
+                                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="suggestion_details" class="block text-gray-800 font-bold mb-2">3. Propuestas de Mejoras o Sugerencias Adicionales (Tu opinión libre sobre la idea):</label>
+                            <textarea id="suggestion_details" name="Suggestion_Details" placeholder="Escriba su opinión libremente. ¿Qué le falta a VeriLog para ser perfecto?" rows="4" class="w-full px-4 py-3 rounded-lg border border-gray-300 text-gray-800 focus:ring-2 focus:ring-color-secondary focus:border-color-secondary transition duration-150"></textarea>
+                        </div>
+                        
+                        <input type="hidden" name="_captcha" value="false">
+
+                        <button type="submit" id="validation-submit-button" class="w-full bg-color-primary text-white px-6 py-3 rounded-full font-bold text-lg hover:bg-color-primary-dark transition duration-300 shadow-xl transform hover:scale-[1.02]">
+                            Enviar Opinión Anónima 📝
+                        </button>
+                        
+                        <p id="validation-message" class="text-sm text-gray-600 mt-2 hidden text-center font-semibold text-green-700">✨ ¡Validación recibida! Su feedback es invaluable para el desarrollo de VeriLog.</p>
+                        
+                    </form>
+                </div> 
+                
+            </div>
+        </section>
     </main>
 
     <footer class="bg-gray-800 py-8">
@@ -216,46 +222,68 @@
             <p>&copy; 2025 VeriLog. Trazabilidad impulsada por la confianza. | <span class="color-primary">Tecnología para el ODS 2.</span></p>
         </div>
     </footer>
-<!--
+
     <script>
-        /**
-         * Maneja el envío del formulario de validación.
-         */
-        function handleValidationSubmission(event) {
-            event.preventDefault();
+        async function handleFormSubmit(event) {
+            event.preventDefault(); // <-- CLAVE: EVITA EL CAMBIO DE PÁGINA
+            
             const form = document.getElementById('validation-form');
             const submitButton = document.getElementById('validation-submit-button');
             const messageElement = document.getElementById('validation-message');
             
-            if (form.checkValidity()) {
-                submitButton.textContent = 'Enviando Datos Anónimos... ⏳';
-                submitButton.disabled = true;
+            // Verifica la validez del formulario (campos requeridos)
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
 
-                // Simulación de envío (por ser HTML estático)
-                setTimeout(() => {
+            // Desactiva el botón y muestra el estado de envío
+            submitButton.textContent = 'Enviando Datos Anónimos... ⏳';
+            submitButton.disabled = true;
+
+            const data = new FormData(form);
+
+            try {
+                // Envía los datos a FormSubmit usando su endpoint AJAX
+                const response = await fetch("https://formsubmit.co/ajax/jesus.palma247910@potros.itson.edu.mx", {
+                    method: "POST",
+                    body: data
+                });
+
+                if (response.ok) {
+                    // ÉXITO: Muestra la confirmación y restablece
+                    
+                    // Confirmación visual
                     submitButton.textContent = '¡Opinión Enviada! 🎉';
                     submitButton.classList.remove('bg-color-primary');
                     submitButton.classList.add('bg-color-secondary'); 
+                    messageElement.classList.remove('hidden'); // Muestra el mensaje
                     
-                    messageElement.classList.remove('hidden');
-                    
-                    // Restablecer
+                    // Restablece el formulario y la UI después de 4 segundos
                     setTimeout(() => {
+                        form.reset(); // <-- BORRA LOS CAMPOS DEL REGISTRO
+                        
+                        // Restablecer la UI
                         submitButton.textContent = 'Enviar Opinión Anónima 📝';
                         submitButton.classList.add('bg-color-primary');
                         submitButton.classList.remove('bg-color-secondary');
                         submitButton.disabled = false;
-                        messageElement.classList.add('hidden');
-                        
-                        form.reset(); 
-
-                    }, 4000);
-                }, 1500);
-            } else {
-                form.reportValidity();
+                        messageElement.classList.add('hidden'); // Oculta el mensaje
+                    }, 4000); 
+                    
+                } else {
+                    // Manejo de errores de servidor
+                    alert("Hubo un error al enviar el formulario. Intente más tarde.");
+                    submitButton.textContent = 'Enviar Opinión Anónima 📝';
+                    submitButton.disabled = false;
+                }
+            } catch (error) {
+                // Manejo de errores de conexión/red
+                alert("Error de conexión. Verifique su red.");
+                submitButton.textContent = 'Enviar Opinión Anónima 📝';
+                submitButton.disabled = false;
             }
         }
     </script>
-    -->
 </body>
 </html>
