@@ -10,7 +10,7 @@
         /* Definición de la fuente y estilos base */
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f8fafc; /* Light background */
+            background-color: #f8fafc;
         }
         /* Estilos de sombra más modernos */
         .shadow-custom {
@@ -33,10 +33,10 @@
         /* Contenedor de Video Responsive (Relación 16:9) */
         .video-responsive {
             overflow: hidden;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            padding-bottom: 56.25%;
             position: relative;
             height: 0;
-            border-radius: 0.75rem; /* rounded-xl */
+            border-radius: 0.75rem;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
         }
         .video-responsive iframe {
@@ -146,7 +146,7 @@
                     <iframe 
                         width="853" 
                         height="480" 
-                        src="https://www.youtube.com/embed/ID_DEL_VIDEO?autoplay=0&controls=1&showinfo=0&rel=0" 
+                        src="https://www.youtube.com/watch?v=Snh7pbxqeuM" 
                         frameborder="0" 
                         allowfullscreen
                         title="Demostración de Prototipo VeriLog (Trazabilidad Blockchain)">
@@ -225,7 +225,7 @@
 
     <script>
         async function handleFormSubmit(event) {
-            event.preventDefault(); // <-- CLAVE: EVITA EL CAMBIO DE PÁGINA
+            event.preventDefault();
             
             const form = document.getElementById('validation-form');
             const submitButton = document.getElementById('validation-submit-button');
@@ -257,11 +257,11 @@
                     submitButton.textContent = '¡Opinión Enviada! 🎉';
                     submitButton.classList.remove('bg-color-primary');
                     submitButton.classList.add('bg-color-secondary'); 
-                    messageElement.classList.remove('hidden'); // Muestra el mensaje
+                    messageElement.classList.remove('hidden');
                     
                     // Restablece el formulario y la UI después de 4 segundos
                     setTimeout(() => {
-                        form.reset(); // <-- BORRA LOS CAMPOS DEL REGISTRO
+                        form.reset(); // Borra datos del formulario
                         
                         // Restablecer la UI
                         submitButton.textContent = 'Enviar Opinión Anónima 📝';
