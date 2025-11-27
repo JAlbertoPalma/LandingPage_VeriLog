@@ -3,321 +3,259 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VeriLog | Trazabilidad Inmutable para la Ayuda Humanitaria</title>
-    <!-- Carga de Tailwind CSS -->
+    <title>VeriLog | Trazabilidad Humanitaria de Confianza</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
-        /* Configuración de color principal usando el verde ODS 2 */
-        :root {
-            --color-primary: #4CAF50; /* ODS 2 Green */
-            --color-secondary: #FF9800; /* Orange Accent */
-        }
-        
-        .bg-primary { background-color: var(--color-primary); }
-        .hover\:bg-primary-dark:hover { background-color: #388E3C; }
-        .text-primary { color: var(--color-primary); }
-        .border-primary { border-color: var(--color-primary); }
-        .bg-secondary { background-color: var(--color-secondary); }
-        .hover\:bg-orange-600:hover { background-color: #F57C00; }
-
-
+        /* Definición de la fuente y estilos base */
         body {
             font-family: 'Inter', sans-serif;
             background-color: #f8fafc; /* Light background */
         }
-        
         /* Estilos de sombra más modernos */
         .shadow-custom {
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08), 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        /* Colores primarios directamente en Tailwind (Emerald para acción, Blue para datos) */
+        .color-primary { color: #059669; } /* Emerald 600 */
+        .bg-color-primary { background-color: #059669; }
+        .hover\:bg-color-primary-dark:hover { background-color: #047857; }
+        .color-secondary { color: #2563EB; } /* Blue 600 */
+        .bg-color-secondary { background-color: #2563EB; }
+        .hover\:bg-color-secondary-dark:hover { background-color: #1D4ED8; }
+
+        /* Clase de animación para estadísticas */
+        .stat-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Contenedor de Video Responsive (Relación 16:9) */
+        .video-responsive {
+            overflow: hidden;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            position: relative;
+            height: 0;
+            border-radius: 0.75rem; /* rounded-xl */
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+        .video-responsive iframe {
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            position: absolute;
         }
     </style>
 </head>
 <body class="antialiased text-gray-800">
     
-    <!-- 1. HEADER / BARRA DE NAVEGACIÓN -->
-    <header class="sticky top-0 z-10 bg-white shadow-sm">
+    <header class="sticky top-0 z-10 bg-white shadow-lg transition duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
-                <!-- Logo -->
-                <a href="#" class="flex items-center space-x-2">
-                    <span class="text-3xl text-primary font-extrabold">🌱</span>
-                    <span class="text-2xl font-bold">VeriLog</span>
+                <a href="#" class="flex items-center space-x-2 transition duration-300 hover:scale-105">
+                    <span class="text-3xl color-primary font-extrabold">✅</span>
+                    <span class="text-2xl font-bold tracking-tight">VeriLog</span>
                 </a>
                 
-                <!-- Navegación (visible en desktop) -->
                 <nav class="hidden md:flex space-x-8">
-                    <a href="#solucion" class="text-gray-600 hover:text-primary transition duration-150">Solución</a>
-                    <a href="#beneficios" class="text-gray-600 hover:text-primary transition duration-150">Beneficios</a>
-                    <a href="#impacto" class="text-gray-600 hover:text-primary transition duration-150">Impacto</a>
+                    <a href="#solucion" class="text-gray-600 font-medium hover:color-primary transition duration-150 relative group">Trazabilidad<span class="absolute bottom-0 left-0 w-full h-0.5 bg-color-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span></a>
+                    <a href="#impacto" class="text-gray-600 font-medium hover:color-primary transition duration-150 relative group">Estadísticas<span class="absolute bottom-0 left-0 w-full h-0.5 bg-color-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span></a>
+                    <a href="#video-demo" class="text-gray-600 font-medium hover:color-primary transition duration-150 relative group">Demo Video<span class="absolute bottom-0 left-0 w-full h-0.5 bg-color-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span></a>
                 </nav>
 
-                <!-- CTA -->
-                <a href="#contacto" class="hidden md:block bg-primary text-white px-4 py-2 rounded-full font-semibold hover:bg-primary-dark transition duration-300 shadow-lg">
-                    Contactar
+                <a href="#validacion" class="hidden md:block bg-color-secondary text-white px-5 py-2 rounded-full font-semibold transition duration-300 shadow-lg hover:shadow-xl hover:bg-color-secondary-dark transform hover:scale-105">
+                    Validar Concepto 💡
                 </a>
             </div>
         </div>
     </header>
 
     <main>
-        <!-- 2. HERO SECTION -->
         <section class="py-20 md:py-32 bg-gray-50">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <span class="inline-block bg-primary text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-4 shadow-md">
-                    ODS 2: Hambre Cero
-                </span>
-                <h1 class="text-5xl md:text-6xl font-extrabold leading-tight mb-6 text-gray-900">
-                    Traza cada Donación. <span class="text-primary">Garantiza la Entrega.</span>
+                <span class="inline-block bg-color-primary text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest mb-4 shadow-lg animate-pulse">BLOCKCHAIN PARA EL ODS 2 🌎</span>
+                <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-6 text-gray-900">
+                    Transparencia Inmutable en cada <span class="color-primary transition duration-500 hover:text-gray-900 hover:underline">Entrega de Ayuda.</span>
                 </h1>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-10">
-                    VeriLog es la plataforma de trazabilidad basada en blockchain que lleva transparencia inmutable a la distribución de ayuda humanitaria, desde el donante hasta el beneficiario final.
+                <p class="text-xl text-gray-600 max-w-4xl mx-auto mb-10">
+                    <strong>VeriLog</strong> es la solución que asegura que el <strong>100% de los recursos</strong> donados lleguen a sus beneficiarios, recuperando la <strong>confianza</strong> de donantes y optimizando la <strong>logística</strong>> humanitaria.
                 </p>
                 <div class="flex justify-center space-x-4">
-                    <a href="#contacto" class="bg-primary text-white px-8 py-3 rounded-full text-lg font-bold hover:bg-primary-dark transition duration-300 shadow-xl">
-                        Solicitar Demo
+                    <a href="#video-demo" class="bg-color-primary text-white px-8 py-4 rounded-full text-lg font-bold transition duration-500 shadow-xl transform hover:scale-110 hover:shadow-2xl hover:bg-color-primary-dark">
+                        Ver Demostración →
                     </a>
-                    <a href="#solucion" class="bg-white text-primary border-2 border-primary px-8 py-3 rounded-full text-lg font-bold hover:bg-gray-100 transition duration-300 shadow-md">
-                        Ver Funcionamiento
+                    <a href="#impacto" class="bg-white text-gray-700 border-2 border-gray-300 px-8 py-4 rounded-full text-lg font-bold transition duration-300 shadow-md hover:bg-gray-100 transform hover:translate-y-[-2px]">
+                        Ver el Impacto
                     </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- 3. SECCIÓN SOLUCIÓN/PROCESO -->
-        <section id="solucion" class="py-20 bg-white">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="text-4xl font-extrabold text-center mb-4">
-                    El Ciclo de la <span class="text-primary">Transparencia</span>
-                </h2>
-                <p class="text-center text-lg text-gray-600 mb-16 max-w-2xl mx-auto">
-                    Transformamos el proceso de entrega de ayuda en un registro auditable y confiable en 3 simples pasos.
-                </p>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-                    <!-- PASO 1: Registro (Almacén) -->
-                    <div class="bg-gray-50 p-6 rounded-xl shadow-custom text-center transition duration-300 hover:shadow-2xl hover:-translate-y-1">
-                        <div class="text-5xl mb-4">📝</div>
-                        <h3 class="text-2xl font-bold mb-3">1. Registro Inmutable</h3>
-                        <p class="text-gray-600">
-                            Cada canasta de ayuda recibe un ID único de trazabilidad (Blockchain Mock). Se registra el donante y el contenido detallado de la ayuda, generando una etiqueta QR para seguimiento.
-                        </p>
-                    </div>
-
-                    <!-- PASO 2: Trazabilidad (Tránsito) -->
-                    <div class="bg-gray-50 p-6 rounded-xl shadow-custom text-center transition duration-300 hover:shadow-2xl hover:-translate-y-1">
-                        <div class="text-5xl mb-4">📱</div>
-                        <h3 class="text-2xl font-bold mb-3">2. Seguimiento en Campo</h3>
-                        <p class="text-gray-600">
-                            La ayuda se asigna a un beneficiario. Los operadores usan la aplicación móvil para verificar el QR y adjuntar una geolocalización o foto de prueba durante el trayecto.
-                        </p>
-                    </div>
-
-                    <!-- PASO 3: Entrega Final (Última Milla) -->
-                    <div class="bg-gray-50 p-6 rounded-xl shadow-custom text-center transition duration-300 hover:shadow-2xl hover:-translate-y-1">
-                        <div class="text-5xl mb-4 text-primary">✅</div>
-                        <h3 class="text-2xl font-bold mb-3">3. Cierre de Trazabilidad</h3>
-                        <p class="text-gray-600">
-                            El operador escanea el QR en la entrega, toma una fotografía de evidencia (Mock) y marca la ayuda como "Entregada", cerrando la cadena de custodia de forma inmutable.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 4. SECCIÓN BENEFICIOS -->
-        <section id="beneficios" class="py-20 bg-gray-100">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                    <div class="lg:order-2">
-                        <h2 class="text-4xl font-extrabold mb-4">
-                            Confianza y Eficiencia en <span class="text-primary">Cada Entrega</span>
-                        </h2>
-                        <p class="text-lg text-gray-600 mb-8">
-                            VeriLog no solo rastrea la ayuda, sino que construye un puente de confianza entre la generosidad de los donantes y la necesidad real de los beneficiarios.
-                        </p>
-                        
-                        <ul class="space-y-4">
-                            <li class="flex items-start">
-                                <span class="flex-shrink-0 text-primary text-xl mt-1 mr-3">✔</span>
-                                <div>
-                                    <h4 class="font-bold text-gray-900">Auditoría en Tiempo Real</h4>
-                                    <p class="text-gray-700">Acceso instantáneo a reportes para verificar el estado y la ubicación final de la ayuda.</p>
-                                </div>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="flex-shrink-0 text-primary text-xl mt-1 mr-3">🛡️</span>
-                                <div>
-                                    <h4 class="font-bold text-gray-900">Seguridad Inmutable</h4>
-                                    <p class="text-gray-700">Uso de tecnología blockchain (Mock) para asegurar que los registros no puedan ser alterados.</p>
-                                </div>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="flex-shrink-0 text-primary text-xl mt-1 mr-3">💌</span>
-                                <div>
-                                    <h4 class="font-bold text-gray-900">Notificación al Donante</h4>
-                                    <p class="text-gray-700">El donante recibe una confirmación y evidencia fotográfica del momento exacto de la entrega.</p>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <!-- Mockup de Interfaz -->
-                    <div class="lg:order-1 bg-white p-6 rounded-xl shadow-custom border border-gray-200">
-                        <div class="h-64 flex justify-center items-center bg-gray-50 rounded-lg border-2 border-dashed border-gray-300">
-                            <img src="https://www.avast.com/hs-fs/hubfs/New_Avast_Academy/what_are_qr_codes_and_how_do_you_scan_them_academy/Academy-What-are-QR-Codes-and-how-do-you-scan-them-Hero.jpg?width=1200&name=Academy-What-are-QR-Codes-and-how-do-you-scan-them-Hero.jpg"
-                            alt="Imágen de referencia">
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
         
-        <!-- 5. SECCIÓN IMPACTO -->
-        <section id="impacto" class="py-20 bg-white">
+        <section id="impacto" class="py-16 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="text-4xl font-extrabold text-center mb-4 text-gray-900">
-                    Nuestro Compromiso con el <span class="text-primary">Impacto Social</span>
+                <h2 class="text-4xl font-extrabold text-center mb-12">El Desafío de la Opacidad y Nuestra Solución Basada en <span class="color-secondary">Métricas</span></h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                    <div class="stat-card p-8 border-t-4 border-color-secondary rounded-lg shadow-custom transition duration-300 cursor-pointer"><p class="text-6xl font-extrabold color-secondary mb-3">~30%</p><h3 class="text-xl font-bold mb-2 text-gray-900">Ayuda Perdida o Desviada</h3><p class="text-gray-600">Porcentaje estimado de ayuda humanitaria que no llega a su destino final.</p></div>
+                    <div class="stat-card p-8 border-t-4 border-color-primary rounded-lg shadow-custom transition duration-300 cursor-pointer"><p class="text-6xl font-extrabold color-primary mb-3">0%</p><h3 class="text-xl font-bold mb-2 text-gray-900">Riesgo de Alteración de Datos</h3><p class="text-gray-600">Garantizado por la inmutabilidad de la tecnología blockchain de VeriLog.</p></div>
+                    <div class="stat-card p-8 border-t-4 border-color-secondary rounded-lg shadow-custom transition duration-300 cursor-pointer"><p class="text-6xl font-extrabold color-secondary mb-3">+40%</p><h3 class="text-xl font-bold mb-2 text-gray-900">Aumento en Intención de Donación</h3><p class="text-gray-600">Al proveer trazabilidad en tiempo real, se recupera la confianza del donante.</p></div>
+                </div>
+                <p class="text-center text-sm text-gray-500 mt-8">💡 Coloque el cursor sobre las tarjetas para ver el efecto.</p>
+            </div>
+        </section>
+        
+        ---
+        
+        <section id="solucion" class="py-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl font-extrabold text-center mb-4">Cómo <span class="color-primary">VeriLog</span> Blinda su Logística 🔒</h2>
+                <p class="text-center text-lg text-gray-600 mb-16 max-w-2xl mx-auto">Un flujo de trabajo digital, simple y verificado, diseñado para la "última milla" de la ayuda humanitaria.</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                    <div class="p-8 bg-white rounded-xl shadow-custom border-t-4 border-color-primary transition duration-500 hover:shadow-2xl hover:bg-gray-100 transform hover:scale-[1.03]"><div class="text-4xl mb-4 color-primary font-extrabold">1. 🏷️ Hash Único</div><h3 class="text-2xl font-bold mb-3">Digitalización y Trazador QR</h3><p class="text-gray-700">Cada kit genera un <strong>registro inalterable</strong> en la "Blockchain Mock" que detalla su contenido y origen.</p></div>
+                    <div class="p-8 bg-white rounded-xl shadow-custom border-t-4 border-color-primary transition duration-500 hover:shadow-2xl hover:bg-gray-100 transform hover:scale-[1.03]"><div class="text-4xl mb-4 color-primary font-extrabold">2. 📍 Geolocalización</div><h3 class="text-2xl font-bold mb-3">Verificación de la Cadena</h3><p class="text-gray-700">Operadores escanean el QR en puntos clave, registrando <strong>coordenadas</strong> y <strong>fotos</strong> en la plataforma.</p></div>
+                    <div class="p-8 bg-white rounded-xl shadow-custom border-t-4 border-color-primary transition duration-500 hover:shadow-2xl hover:bg-gray-100 transform hover:scale-[1.03]"><div class="text-4xl mb-4 color-primary font-extrabold">3. 📸 Prueba de Entrega</div><h3 class="text-2xl font-bold mb-3">Auditoría Instantánea al Cliente</h3><p class="text-gray-700">La entrega se cierra con una foto. La información es accesible a <strong>donantes y financiadores</strong> de inmediato.</p></div>
+                </div>
+            </div>
+        </section>
+
+        ---
+        
+        <section id="beneficios" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl font-extrabold text-center mb-12">Valor Estratégico para su <span class="color-secondary">Organización</span></h2>
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+                    <div class="p-6 bg-gray-50 rounded-xl shadow-custom transition duration-300 hover:shadow-lg hover:bg-gray-100 transform hover:rotate-1"><div class="text-5xl mb-4 color-primary">💸</div><h3 class="text-2xl font-bold mb-2">Maximización de Fondos</h3><p class="text-gray-700"><strong>Minimice el desvío</strong> Asegure que cada euro o dólar donado se convierta en ayuda efectiva.</p></div>
+                    <div class="p-6 bg-gray-50 rounded-xl shadow-custom transition duration-300 hover:shadow-lg hover:bg-gray-100 transform hover:rotate-[-1deg]"><div class="text-5xl mb-4 color-primary">👑</div><h3 class="text-2xl font-bold mb-2">Confianza de Donantes Elite</h3><p class="text-gray-700">Proporcione reportes automatizados y auditables para retener a <strong>grandes financiadores</strong>.</p></div>
+                    <div class="p-6 bg-gray-50 rounded-xl shadow-custom transition duration-300 hover:shadow-lg hover:bg-gray-100 transform hover:scale-105"><div class="text-5xl mb-4 color-primary">⚖️</div><h3 class="text-2xl font-bold mb-2">Cumplimiento Regulatorio</h3><p class="text-gray-700">Documente la cadena de custodia con tecnología irrefutable, facilitando las <strong>auditorías externas</strong>.</p></div>
+                </div>
+            </div>
+        </section>
+
+        ---
+
+        <section id="video-demo" class="py-20 bg-gray-100">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-4xl font-extrabold text-gray-900 mb-4">
+                    Demostración en Video: <span class="color-secondary">Prototipo VeriLog</span> 🎬
                 </h2>
-                <p class="text-center text-lg text-gray-600 mb-12 max-w-3xl mx-auto">
-                    VeriLog está diseñado para servir a la misión humanitaria, enfocándose en la eficiencia y la ética de la distribución de recursos.
+                <p class="text-xl text-gray-600 mb-10">
+                    Vea cómo funciona la trazabilidad inmutable en la práctica.
                 </p>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="text-center p-6 bg-primary/10 rounded-xl shadow-md">
-                        <div class="text-5xl mb-4 text-primary">💰</div>
-                        <h3 class="text-2xl font-bold mb-2">Ahorro en Costos</h3>
-                        <p class="text-gray-700">
-                            Reduce las pérdidas por desvío o deterioro de ayuda, maximizando el valor de cada donación.
-                        </p>
-                    </div>
-                    <div class="text-center p-6 bg-primary/10 rounded-xl shadow-md">
-                        <div class="text-5xl mb-4 text-primary">🎯</div>
-                        <h3 class="text-2xl font-bold mb-2">Entrega Dirigida</h3>
-                        <p class="text-gray-700">
-                            Garantiza que la ayuda llegue a los beneficiarios registrados, eliminando intermediarios no autorizados.
-                        </p>
-                    </div>
-                    <div class="text-center p-6 bg-primary/10 rounded-xl shadow-md">
-                        <div class="text-5xl mb-4 text-primary">📈</div>
-                        <h3 class="text-2xl font-bold mb-2">Métricas de Transparencia</h3>
-                        <p class="text-gray-700">
-                            Proporciona datos verificables a financiadores y gobiernos sobre la efectividad de las campañas.
-                        </p>
-                    </div>
+                
+                <div class="video-responsive">
+                    <iframe 
+                        width="853" 
+                        height="480" 
+                        src="https://www.youtube.com/embed/ID_DEL_VIDEO?autoplay=0&controls=1&showinfo=0&rel=0" 
+                        frameborder="0" 
+                        allowfullscreen
+                        title="Demostración de Prototipo VeriLog (Trazabilidad Blockchain)">
+                    </iframe>
                 </div>
+                <p class="text-sm text-gray-500 mt-6">
+                    Después de ver el video, le invitamos a llenar el formulario de validación a continuación.
+                </p>
             </div>
         </section>
 
-        <!-- 6. SECCIÓN LLAMADA A LA ACCIÓN / CONTACTO -->
-        <section id="contacto" class="py-20 bg-primary">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
-                <h2 class="text-4xl font-extrabold text-center mb-10">
-                    Hablemos de su Próximo Proyecto
-                </h2>
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        ---
+        
+        <section id="validacion" class="py-20 bg-color-secondary relative overflow-hidden">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-white relative z-10">
+            <h2 class="text-4xl font-extrabold text-center mb-4">Formulario de <span class="text-white/90">Validación de Concepto</span></h2>
+            <p class="text-center text-lg text-white/80 mb-10">Su opinión anónima es crucial para medir la claridad y el valor de la propuesta VeriLog.</p>
+            <div class="max-w-2xl mx-auto bg-white p-8 rounded-xl shadow-2xl transform transition duration-300">
+                <form action="https://formsubmit.co/jesus.palma247910@potros.itson.edu.mx" method="POST" id="validation-form" class="space-y-6">
                     
-                    <!-- Columna 1: Formulario de Contacto (Recolección de Datos) -->
-                    <div class="bg-white p-8 rounded-xl shadow-2xl">
-                        <h3 class="text-2xl font-bold text-gray-800 mb-6">1. Formulario de Solicitud</h3>
-                        <p class="text-gray-600 mb-4">
-                            Envíenos sus datos para que nuestro equipo le contacte por correo electrónico.
-                        </p>
-                        <form id="contact-form" onsubmit="handleSubmission(event)" class="space-y-4">
-                            <input type="text" id="org-name" placeholder="Nombre de la Organización" class="w-full px-4 py-3 rounded-lg border border-gray-300 text-gray-800 focus:ring-primary focus:border-primary transition" required>
-                            <input type="email" id="org-email" placeholder="Correo Electrónico de Contacto" class="w-full px-4 py-3 rounded-lg border border-gray-300 text-gray-800 focus:ring-primary focus:border-primary transition" required>
-                            <textarea id="org-message" placeholder="Mensaje o Requerimientos Específicos" rows="3" class="w-full px-4 py-3 rounded-lg border border-gray-300 text-gray-800 focus:ring-primary focus:border-primary transition"></textarea>
-                            
-                            <!-- Botón de Envío de Formulario (Sin redirección) -->
-                            <button type="submit" id="submit-button" class="w-full bg-primary text-white px-6 py-3 rounded-full font-bold text-lg hover:bg-primary-dark transition duration-300 shadow-xl">
-                                Enviar Solicitud (Email)
-                            </button>
-                            <p id="submission-message" class="text-sm text-gray-600 mt-2 hidden">¡Gracias! Su solicitud ha sido enviada. Le contactaremos pronto.</p>
-                        </form>
+                    <div>
+                        <label class="block text-gray-800 font-bold mb-3">1. ¿Qué tan clara te pareció la explicación del concepto VeriLog?</label>
+                        <div class="flex justify-between md:justify-around space-x-2 md:space-x-4 p-3 bg-gray-100 rounded-lg">
+                            <label class="flex flex-col items-center cursor-pointer text-gray-700 transition duration-150 hover:text-red-500"><input type="radio" name="Clarity_Rating" value="1 (Poco Clara)" required class="form-radio text-red-500 h-5 w-5"><span class="mt-1 text-sm font-semibold">1 (Poco Clara)</span></label>
+                            <label class="flex flex-col items-center cursor-pointer text-gray-700 transition duration-150 hover:text-yellow-500"><input type="radio" name="Clarity_Rating" value="2 (Regular)" class="form-radio text-yellow-500 h-5 w-5"><span class="mt-1 text-sm font-semibold">2 (Regular)</span></label>
+                            <label class="flex flex-col items-center cursor-pointer text-gray-700 transition duration-150 hover:text-green-500"><input type="radio" name="Clarity_Rating" value="3 (Clara)" class="form-radio text-green-500 h-5 w-5"><span class="mt-1 text-sm font-semibold">3 (Clara)</span></label>
+                            <label class="flex flex-col items-center cursor-pointer text-gray-700 transition duration-150 hover:text-green-700"><input type="radio" name="Clarity_Rating" value="4 (Muy Clara)" class="form-radio text-green-700 h-5 w-5"><span class="mt-1 text-sm font-semibold">4 (Muy Clara)</span></label>
+                        </div>
                     </div>
 
-                    <!-- Columna 2: Chat Directo (Inmediatez) -->
-                    <div class="text-center p-8 rounded-xl border-4 border-white/50 border-dashed backdrop-blur-sm">
-                        <h3 class="text-2xl font-bold text-white mb-6">2. Chat Directo (Opción Rápida)</h3>
-                        <p class="text-white/90 mb-6">
-                            ¿Prefiere una respuesta inmediata? Únase a nuestra conversación de WhatsApp.
-                        </p>
-                        <!-- Enlace directo a WhatsApp -->
-                        <a href="https://chat.whatsapp.com/Ethk1eyPSpMAN5K7m2fSHH" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center space-x-3 w-full bg-secondary text-white px-8 py-4 rounded-full font-bold text-xl hover:bg-orange-600 transition duration-300 shadow-xl transform hover:scale-[1.02] active:scale-100">
-                            <!-- Ícono de WhatsApp (SVG simple) -->
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12.0003 2.00004C6.5003 2.00004 2.0003 6.50004 2.0003 12.0001C2.0003 13.7001 2.4503 15.3001 3.2303 16.7001L2.0003 22.0001L7.4903 20.7601C8.8003 21.4901 10.3303 21.9001 12.0003 21.9001H12.0103C17.5003 21.9001 22.0003 17.4001 22.0003 11.9001C22.0003 6.40004 17.5003 2.00004 12.0003 2.00004ZM16.3003 15.6001C16.1403 15.9301 15.3403 16.3301 14.8603 16.4001C14.3803 16.4701 13.9103 16.3501 11.4103 15.3501C8.7503 14.2801 6.9403 12.0301 6.8103 11.8901C6.6703 11.7501 5.9203 10.7001 5.9203 9.60007C5.9203 8.50007 6.4203 8.01007 6.6403 7.78007C6.8603 7.55007 7.1203 7.46007 7.3703 7.46007C7.5403 7.46007 7.7003 7.46007 7.8503 7.46007C8.0103 7.46007 8.1203 7.49007 8.3203 7.95007C8.5403 8.41007 9.0603 9.85007 9.1703 10.0601C9.2803 10.2701 9.3903 10.5101 9.3103 10.7301C9.2303 10.9501 9.1703 11.0201 9.0403 11.1601C8.9103 11.3001 8.7903 11.4201 8.6503 11.6001C8.5103 11.7801 8.3803 11.9701 8.5203 12.2101C8.6603 12.4501 9.5303 13.9101 10.7403 14.9301C11.6803 15.7201 12.4603 15.9801 12.7203 16.1101C12.9803 16.2401 13.1103 16.2201 13.2503 16.0701C13.5603 15.7401 14.1703 15.0601 14.4203 14.7901C14.6703 14.5201 14.9403 14.4701 15.2203 14.5701C15.4803 14.6701 16.1203 14.9901 16.2503 15.0601C16.3803 15.1301 16.4603 15.2001 16.3003 15.6001Z"/>
-                            </svg>
-                            <span>Chatear con el Equipo</span>
-                        </a>
+                    <div>
+                        <label for="system_area" class="block text-gray-800 font-bold mb-2">2. Área del Sistema que te parece más valiosa o que te genera más dudas:</label>
+                        <div class="relative">
+                            <select id="system_area" name="System_Area" class="block appearance-none w-full bg-white border border-gray-300 text-gray-800 py-3 px-4 pr-8 rounded-lg leading-tight focus:outline-none focus:ring-2 focus:ring-color-secondary focus:border-color-secondary transition duration-150" required>
+                                <option value="" disabled selected>Seleccione un área...</option>
+                                <option value="Inmutabilidad">Inmutabilidad (0% riesgo de alteración)</option>
+                                <option value="Trazabilidad">Trazabilidad de la Cadena de Custodia (Paso 1-3)</option>
+                                <option value="Confianza">Aumento de Confianza del Donante (+40%)</option>
+                                <option value="Reportes">Reportes y Auditoría (Cumplimiento Regulatorio)</option>
+                                <option value="Logistica">Logística y Costos Operacionales</option>
+                                <option value="Dudas">Me genera dudas la implementación</option>
+                            </select>
+                            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                            </div>
+                        </div>
                     </div>
+
+                    <div>
+                        <label for="suggestion_details" class="block text-gray-800 font-bold mb-2">3. Propuestas de Mejoras o Sugerencias Adicionales (Tu opinión libre sobre la idea):</label>
+                        <textarea id="suggestion_details" name="Suggestion_Details" placeholder="Escriba su opinión libremente. ¿Qué le falta a VeriLog para ser perfecto?" rows="4" class="w-full px-4 py-3 rounded-lg border border-gray-300 text-gray-800 focus:ring-2 focus:ring-color-secondary focus:border-color-secondary transition duration-150"></textarea>
+                    </div>
+                    
+                    <button type="submit" id="validation-submit-button" class="w-full bg-color-primary text-white px-6 py-3 rounded-full font-bold text-lg hover:bg-color-primary-dark transition duration-300 shadow-xl transform hover:scale-[1.02]">
+                        Enviar Opinión Anónima 📝
+                    </button>
+                    <input type="hidden" name="_next" value="URL-DE-TU-PAGINA-DE-AGRADECIMIENTO.html">
+                    <input type="hidden" name="_captcha" value="false">
+                </form>
                 </div>
-            </div>
-        </section>
+        </div>
+    </section>
     </main>
 
-    <!-- 7. FOOTER -->
     <footer class="bg-gray-800 py-8">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-400 text-sm">
-            <p>&copy; 2025 VeriLog. Trazabilidad impulsada por la confianza. | <span class="text-primary">Tecnología para el ODS 2.</span></p>
+            <p>&copy; 2025 VeriLog. Trazabilidad impulsada por la confianza. | <span class="color-primary">Tecnología para el ODS 2.</span></p>
         </div>
     </footer>
-
+<!--
     <script>
-        const WHATSAPP_LINK = "https://chat.whatsapp.com/Ethk1eyPSpMAN5K7m2fSHH";
-
         /**
-         * Maneja el envío del formulario. Simula la recolección de datos y muestra
-         * un mensaje de confirmación, sin hacer la redirección a WhatsApp (pues esa
-         * opción es manejada por el botón directo).
+         * Maneja el envío del formulario de validación.
          */
-        function handleSubmission(event) {
-            // 1. Evita el envío real del formulario.
+        function handleValidationSubmission(event) {
             event.preventDefault();
-
-            const form = document.getElementById('contact-form');
-            const submitButton = document.getElementById('submit-button');
-            const messageElement = document.getElementById('submission-message');
+            const form = document.getElementById('validation-form');
+            const submitButton = document.getElementById('validation-submit-button');
+            const messageElement = document.getElementById('validation-message');
             
-            // 2. Comprobación de validación
             if (form.checkValidity()) {
-                // Simulación de envío
-                
-                // Deshabilitar botón temporalmente y mostrar mensaje
-                submitButton.textContent = 'Enviando...';
+                submitButton.textContent = 'Enviando Datos Anónimos... ⏳';
                 submitButton.disabled = true;
 
-                // En un entorno real, aquí se enviaría la data a un servidor (ej. Firebase, API)
-
+                // Simulación de envío (por ser HTML estático)
                 setTimeout(() => {
-                    // Simulación de respuesta exitosa
-                    submitButton.textContent = 'Enviado ✔';
-                    submitButton.classList.remove('bg-primary');
-                    submitButton.classList.add('bg-green-600');
+                    submitButton.textContent = '¡Opinión Enviada! 🎉';
+                    submitButton.classList.remove('bg-color-primary');
+                    submitButton.classList.add('bg-color-secondary'); 
                     
                     messageElement.classList.remove('hidden');
-
-                    // Restablecer el formulario y el botón después de 5 segundos
+                    
+                    // Restablecer
                     setTimeout(() => {
-                        submitButton.textContent = 'Enviar Solicitud (Email)';
-                        submitButton.classList.add('bg-primary');
-                        submitButton.classList.remove('bg-green-600');
+                        submitButton.textContent = 'Enviar Opinión Anónima 📝';
+                        submitButton.classList.add('bg-color-primary');
+                        submitButton.classList.remove('bg-color-secondary');
                         submitButton.disabled = false;
                         messageElement.classList.add('hidden');
                         
-                        // Opcional: Limpiar el formulario después de "enviar"
-                        document.getElementById('org-name').value = '';
-                        document.getElementById('org-email').value = '';
-                        document.getElementById('org-message').value = '';
+                        form.reset(); 
 
-                    }, 5000);
-                }, 1000);
-
+                    }, 4000);
+                }, 1500);
             } else {
-                // Si la validación falla (ej. campos requeridos vacíos), forzar validación del navegador.
                 form.reportValidity();
             }
         }
     </script>
+    -->
 </body>
 </html>
