@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veri-Log - Entrega Final</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <span class="logo">🚚</span>
+            <h1>Verificación de Entrega Final</h1>
+        </div>
+
+        <form id="scan-form" onsubmit="verifyCanasta(event)">
+            <div class="alert-info">
+                Por favor, escanee el código QR de la canasta o ingrese el ID manualmente.
+            </div>
+            <div class="form-group" style="text-align: center;">
+                <label>Escanear Código QR de Canasta</label>
+                <input type="text" id="scan-input" placeholder="Ingresar ID manualmente, Ej. VL-9348-1A">
+            </div>
+            <button type="submit" class="btn-primary btn-full" style="background-color: #FF9800;">Verificar Canasta</button>
+        </form>
+
+        <div id="delivery-details" style="display: none;">
+            <h2>Canasta Encontrada: <span id="delivery-id"></span></h2>
+            <p><strong>Contenido:</strong> Arroz, Atún, Lentejas (Verificado con Blockchain).</p>
+            <p><strong>Localización detectada::</strong> Campo 70, Sonora, México</p>
+
+            <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
+
+            <p style="font-weight: 700;">Evidencia para el Donante:</p>
+
+            <div class="mock-preview">
+                <img src="https://images.pexels.com/photos/6646953/pexels-photo-6646953.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                alt="Vista previa de la foto de entrega (Mock)" class="mock2-preview">
+            </div>
+            <input type="hidden" id="scan-input-hidden" value="">
+
+            <div class="delivery-actions">
+                <button type="button" onclick="alert('Simulación: La foto de la entrega se adjunta al registro inmutable para verificación del donante.')" style="background-color: #7986CB;">
+                   <span class="icon-mock icon-camera"></span> Tomar Foto de Entrega (Última Milla)
+                </button>
+
+                <button type="button" class="btn-primary" onclick="completeDelivery();">
+                    <span class="icon-mock icon-check"></span> Marcar como Entregada (Cerrar Trazabilidad)
+                </button>
+
+                <a href="indexProto.html" class="btn-secondary">Volver al Panel 🛠️</a>
+            </div>
+            <a href="../index.html" class="btn-secondary btn-full" style="margin-top: 15px; background-color: #ddd;">Ir a Landing Page 🏠</a>
+        </div>
+    </div>
+
+</body>
+</html>
