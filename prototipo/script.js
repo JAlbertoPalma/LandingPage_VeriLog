@@ -61,7 +61,7 @@ function completeDelivery() {
     alert(`¡Entrega ${id} marcada como COMPLETADA! El registro inmutable ha finalizado.`);
 
     // Se redirige a la Landing Page (subiendo un nivel en la estructura de archivos)
-    window.location.href = '../index.html';
+    window.location.href = 'indexProto.html';
 }
 
 // Lógica para simular el rastreo (se ejecuta al enviar el formulario en rastreo.html)
