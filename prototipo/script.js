@@ -36,7 +36,8 @@ function registerCanasta(event) {
 function initializeSuccessScreen() {
     const id = getTrackingID();
     document.getElementById('confirmed-id').textContent = id;
-    document.getElementById('qr-text').textContent = id;
+    // Se corrige la referencia a qr-text, que no existe en success.html
+    // document.getElementById('qr-text').textContent = id;
 }
 
 function verifyCanasta(event) {
@@ -59,7 +60,8 @@ function completeDelivery() {
 
     alert(`¡Entrega ${id} marcada como COMPLETADA! El registro inmutable ha finalizado.`);
 
-    window.location.href = 'index.html';
+    // Se redirige a la Landing Page (subiendo un nivel en la estructura de archivos)
+    window.location.href = '../index.html';
 }
 
 // Lógica para simular el rastreo (se ejecuta al enviar el formulario en rastreo.html)

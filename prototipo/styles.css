@@ -108,6 +108,11 @@ button, a.btn-primary, a.btn-secondary {
     gap: 15px;
 }
 
+/* NEW: Full width button utility for a clean look on some pages */
+.btn-full {
+    width: 100%;
+}
+
 /* ELEMENTOS DE PROTOTIPO */
 .tracking-id {
     background-color: #f0f8f0;
